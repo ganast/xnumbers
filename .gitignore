@@ -1,0 +1,12 @@
+manifest.mf
+build.number
+build.properties
+build.xml
+
+[Bb]uild/
+[Dd]ist/
+[Ll]occ/
+[Nn]bproject/
+[Vv]erl/
+
+[Ss]rc/xnumbers/VersionInfo.java

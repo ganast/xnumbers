@@ -1,0 +1,11 @@
+======================
+XNumbers Release Notes
+======================
+
+(Legend: + new feature, - removed feature, * change, @ bugfix, . known issue)
+
+Changelog
+=========
+
+1.0 (initial release)
+---------------------

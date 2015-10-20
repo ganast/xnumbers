@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright (c) 2010-2015 by George Anastassakis
+
+ This file is part of XNumbers.
+
+ XNumbers is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ XNumbers is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with XNumbers. If not, see http://www.gnu.org/licenses/.
+-->
+
+<X3D profile="Immersive">
+
+  <head>
+    <meta name="title" content="XNumbersProto.x3d" />
+    <meta name="author" content="George Anastassakis" />
+    <meta name="created" content="April 2010" />
+    <meta name="description" content="Declaration of the XNumbers prototype X3D
+      node. XNumbers is an implementation of the N-Puzzle game in X3D."
+    />
+  </head>
+
+  <Scene>
+
+    <ProtoDeclare name="XNumbersProto">
+
+      <ProtoInterface>
+
+        <field accessType="initializeOnly" name="debug" type="SFBool" />
+        <field accessType="initializeOnly" name="showBounds" type="SFBool" />
+        <field accessType="initializeOnly" name="nodePrefix" type="SFString" />
+        <field accessType="initializeOnly" name="helpURL" type="SFString" />
+        <field accessType="initializeOnly" name="spawnLogic" type="SFString" />
+        <field accessType="initializeOnly" name="spawnLocations" type="MFFloat" />
+        <field accessType="initializeOnly" name="width" type="SFInt32" />
+        <field accessType="initializeOnly" name="height" type="SFInt32" />
+        <field accessType="inputOnly" name="click" type="SFInt32" />
+        <field accessType="outputOnly" name="boardState" type="MFInt32" />
+
+      </ProtoInterface>
+
+      <ProtoBody>
+
+        <Transform DEF="XNumbersProto_HOLDER" >
+          <Shape>
+            <Box />
+          </Shape>
+        </Transform>
+
+        <Script DEF="XNumbersProto_SC" url="xnumbers.XNumbers.class" directOutput="true">
+
+            <field accessType="initializeOnly" name="children" type="MFNode" />
+            <field accessType="initializeOnly" name="debug" type="SFBool" value="true" />
+            <field accessType="initializeOnly" name="showBounds" type="SFBool" value="false" />
+            <field accessType="initializeOnly" name="nodePrefix" type="SFString" value="XNUMBERS_1_7_9" />
+            <field accessType="initializeOnly" name="helpURL" type="SFString" value="http://kelnet.cs.unipi.gr/ganast/x3d/xnumbers/" />
+            <field accessType="initializeOnly" name="spawnLogic" type="SFString" value="ORIGIN" />
+            <field accessType="initializeOnly" name="spawnLocations" type="MFFloat" value="0, 0" />
+
+            <field accessType="initializeOnly" name="width" type="SFInt32" value="7" />
+            <field accessType="initializeOnly" name="height" type="SFInt32" value="9" />
+            <field accessType="inputOnly" name="click" type="SFInt32" />
+
+            <field accessType="outputOnly" name="boardState" type="MFInt32" />
+
+          <IS>
+            <connect nodeField="debug" protoField="debug"/>
+            <connect nodeField="showBounds" protoField="showBounds"/>
+            <connect nodeField="nodePrefix" protoField="nodePrefix"/>
+            <connect nodeField="helpURL" protoField="helpURL"/>
+            <connect nodeField="spawnLogic" protoField="spawnLogic"/>
+            <connect nodeField="spawnLocations" protoField="spawnLocations"/>
+            <connect nodeField="width" protoField="width"/>
+            <connect nodeField="height" protoField="height"/>
+            <connect nodeField="click" protoField="click"/>
+            <connect nodeField="boardState" protoField="boardState"/>
+          </IS>
+
+        </Script>
+
+        <ROUTE fromNode="XNumbersProto_SC" fromField="children" toNode="XNumbersProto_HOLDER" toField="children" />
+
+      </ProtoBody>
+
+    </ProtoDeclare>
+
+  </Scene>
+
+</X3D>

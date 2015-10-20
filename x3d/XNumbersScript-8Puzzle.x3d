@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright (c) 2010-2015 by George Anastassakis
+
+ This file is part of XNumbers.
+
+ XNumbers is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ XNumbers is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with XNumbers. If not, see http://www.gnu.org/licenses/.
+-->
+
+<X3D profile="Immersive">
+
+  <head>
+    <meta name="title" content="XNumbersScript-8Puzzle.x3d" />
+    <meta name="author" content="George Anastassakis" />
+    <meta name="created" content="April 2010" />
+    <meta name="description" content="XNumbers as a Script node. XNumbers is an
+      implementation of the N-Puzzle game in X3D. This file shows how to declare
+      a script node to use XNumbers directly, provided that you have access to
+      implementation files (that is, Java .class files). Enjoy the game in a
+      calm nocturnal scenery." />
+  </head>
+
+  <Scene>
+
+    <Background
+      skyAngle="1.5 1.59 1.68 3.14"
+      skyColor="0 0 0, 0 0 .3, 0 .3 .5, 0 0 .3, 0 0 0"
+      groundAngle="1.59"
+      groundColor="0 .2 0 0 .1 0"
+    />
+
+    <Transform DEF="XNumbers_3_3">
+
+      <MetadataString name="DEF_NAME" value="XNumbers_3_3"/>
+
+	  <Script DEF="XNumbersScript_3_3_SC" url="xnumbers.XNumbers.class" directOutput="true">
+
+        <field accessType="initializeOnly" name="children" type="MFNode" />
+        <field accessType="initializeOnly" name="debug" type="SFBool" value="true" />
+        <field accessType="initializeOnly" name="showBounds" type="SFBool" value="false" />
+        <field accessType="initializeOnly" name="nodePrefix" type="SFString" value="XNumbers_3_3" />
+        <field accessType="initializeOnly" name="helpURL" type="SFString" value="http://kelnet.cs.unipi.gr/ganast/x3d/xnumbers/" />
+        <field accessType="initializeOnly" name="spawnLogic" type="SFString" value="ORIGIN" />
+        <field accessType="initializeOnly" name="spawnLocations" type="MFFloat" value="0, 0" />
+
+        <field accessType="inputOutput" name="width" type="SFInt32" value="3" />
+        <field accessType="inputOutput" name="height" type="SFInt32" value="3" />
+        <field accessType="inputOnly" name="click" type="SFInt32" />
+
+        <field accessType="outputOnly" name="boardState" type="MFInt32" />
+
+      </Script>
+
+      <Transform DEF="XNumbersScript_3_3_HOLDER" >
+        <Shape>
+          <Box />
+        </Shape>
+      </Transform>
+
+      <ROUTE fromNode="XNumbersScript_3_3_SC" fromField="children" toNode="XNumbersScript_3_3_HOLDER" toField="children" />
+
+    </Transform>
+
+    <Viewpoint position="0 0 24" />
+
+  </Scene>
+
+</X3D>

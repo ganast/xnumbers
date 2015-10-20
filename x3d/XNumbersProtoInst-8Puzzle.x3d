@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2010-2015 by George Anastassakis
+
+  This file is part of XNumbers.
+
+  XNumbers is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  XNumbers is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with XNumbers. If not, see http://www.gnu.org/licenses/.
+-->
+
+<X3D profile="Immersive">
+
+  <head>
+    <meta name="title" content="XNumbersProtoInst-8Puzzle.x3d"/>
+    <meta name="author" content="George Anastassakis"/>
+    <meta name="created" content="April 2010"/>
+    <meta name="description" content="A demonstration of how to use the XNumbers
+      prototype X3D node available in the XNumbersProto.x3d file. XNumbers is an
+      implementation of the N-Puzzle game in X3D. This file shows how to declare
+      the prototype node as an external prototype and add a XNumbers instance,
+      with overridden initial field values, to the scene. Enjoy the game in a
+      calm nocturnal scenery."
+    />
+  </head>
+
+  <Scene>
+
+    <Background
+      skyAngle="1.5 1.59 1.68 3.14"
+      skyColor="0 0 0, 0 0 .3, 0 .3 .5, 0 0 .3, 0 0 0"
+      groundAngle="1.59"
+      groundColor="0 .2 0 0 .1 0"
+    />
+
+    <ExternProtoDeclare name="XNumbersProto" url="http://kelnet.cs.unipi.gr/ganast/res/x3d/xnumbers/XNumbersProto.x3d#XNumbersProto">
+      <field name="width" type="SFInt32" accessType="initializeOnly" />
+      <field name="height" type="SFInt32" accessType="initializeOnly" />
+      <field name="debug" type="SFBool" accessType="initializeOnly" />
+      <field name="showBounds" type="SFBool" accessType="initializeOnly" />
+    </ExternProtoDeclare>
+
+    <ProtoInstance DEF="XNumbers_3_3" name="XNumbersProto">
+      <fieldValue name="width" value="3" />
+      <fieldValue name="height" value="3" />
+    </ProtoInstance>
+
+    <Viewpoint position="0 0 24" />
+
+  </Scene>
+
+</X3D>
